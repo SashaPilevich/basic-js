@@ -21,7 +21,7 @@ function countCats(matrix) {
     if(it=='^^'){
       count++
     }else{
-      count+=0
+      count+=0 
     }
   })
  })
