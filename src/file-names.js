@@ -16,18 +16,23 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function renameFiles(names) {
-  // const renamed = {};
-  // return names.map(name => {
-  //   let result = name;
-  //   const count = renamed[name] ? renamed[name] : 0;
-  //   if (count > 0) {
-  //     result += `(${count})`;
-  //   }
-  //   renamed[result] = renamed[result] ? renamed[result] + 1 : 1;
-  //   return result;
-  // });
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+  let result = []
+  let additionResult = []
+  names.forEach((item)=>{
+    if(result.includes(item)){
+      let repeatName = additionResult.filter((it)=>{
+        if(it===item){
+          return it
+        }
+      })
+      result.push(`${item}(${repeatName.length})`)
+      additionResult.push(`${item}(${repeatName.length})`)
+    }else{
+      result.push(item)
+    }
+    additionResult.push(item)
+  })
+  return result
 }
 
 module.exports = {
